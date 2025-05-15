@@ -1,0 +1,13 @@
+mcp[cli]>=1.2.0
+httpx
+aiohttp
+aiofiles
+beautifulsoup4
+pyjwt
+pyyaml
+requests
+sslyze
+python-nmap
+dnspython
+pdfkit 
+dotenv

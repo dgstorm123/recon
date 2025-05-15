@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  pentest-tools:
+    build: .
+    container_name: amass
+    volumes:
+      - ./reports:/app/reports
+      - ./templates:/app/templates
+    environment:
+      - GITHUB_TOKEN=${GITHUB_TOKEN}
+    cap_add:
+      - NET_ADMIN  # Required for some network scanning tools
+      - NET_RAW    # Required for raw socket operations
+    security_opt:
+      - seccomp:unconfined  # Required for some security tools
+    stdin_open: true  # Keep STDIN open for MCP
+    tty: true        # Allocate a pseudo-TTY
+
+networks:
+  pentest-network:
+    driver: bridge 
